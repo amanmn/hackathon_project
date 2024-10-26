@@ -1,0 +1,237 @@
+/* src/HeroSection.css */
+.hero-section {
+  background-color: #007bff; /* Primary color */
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: white; /* White background */
+  color: #007bff; /* Primary color text */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #e7f1ff; /* Light blue on hover */
+  color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* src/Features.css */
+h2 {
+  margin-bottom: 40px;
+  color: #007bff; /* Primary color */
+}
+
+/* src/Testimonials.css */
+.carousel-item {
+  text-align: center;
+}
+
+/* src/FinanceNavbar.css */
+.finance-navbar {
+  background-color: #007bff; /* Primary color */
+  padding: 10px 20px; /* Padding for navbar */
+}
+
+.finance-navbar .navbar-brand {
+  color: #ffffff; /* White brand color */
+  font-size: 1.8rem; /* Brand font size */
+}
+
+.finance-navbar .navbar-brand:hover {
+  color: #e7f1ff; /* Light blue on hover */
+}
+
+.finance-navbar .nav-link {
+  color: #ffffff; /* White link color */
+  font-size: 1.1rem; /* Link font size */
+  margin-right: 15px; /* Spacing between links */
+}
+
+.finance-navbar .nav-link:hover {
+  background-color: #fff;
+  color: #007bff; /* Light blue on hover */
+  border-radius: 5px;
+}
+
+/* Search form styling */
+.search-form {
+  display: flex; /* Flex display to align items */
+}
+
+.search-input {
+  width: 200px; /* Set width for search input */
+}
+
+.search-button {
+  background-color: #0056b3; /* Darker blue for button */
+  color: #ffffff; /* White text for button */
+}
+
+.search-button:hover {
+  background-color: #004494; /* Even darker blue on hover */
+  color: #ffffff; /* Maintain white text on hover */
+}
+
+@media (max-width: 768px) {
+  .finance-navbar {
+    padding: 15px; /* More padding on mobile */
+  }
+
+  .finance-navbar .navbar-brand {
+    font-size: 1.5rem; /* Smaller brand font size */
+  }
+
+  .finance-navbar .nav-link {
+    font-size: 1rem; /* Smaller link font size */
+  }
+
+  .search-input {
+    width: 150px; /* Smaller width for mobile */
+  }
+}
+
+
+/* Loan Options */
+.loan-options-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f9fa; /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loan-option {
+  flex: 1 1 150px; /* Flex-grow, flex-shrink, and base width */
+  margin: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background-color: #fff; /* White background for each option */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.loan-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.loan-icon {
+  width: 50px; /* Uniform icon size */
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.loan-option p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #343a40; /* Darker text color */
+}
+
+/* Active option styling */
+.loan-option.active {
+  border: 2px solid #007bff; /* Highlight active option */
+  background-color: #e7f1ff; /* Light blue background */
+}
+
+/* More options styling */
+.loan-option.more-options {
+  background-color: #f8f9fa; /* Same as container background */
+  border: 2px dashed #007bff; /* Dashed border */
+}
+
+.more-options i {
+  font-size: 20px;
+  color: #007bff; /* Color for icon */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .loan-option {
+    flex: 1 1 120px; /* Adjust width for smaller screens */
+  }
+
+  .loan-icon {
+    width: 40px; /* Smaller icon size for mobile */
+    height: 40px;
+  }
+
+  .loan-option p {
+    font-size: 14px; /* Smaller text for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .loan-option {
+    flex: 1 1 100px; /* Further adjust for very small screens */
+  }
+}
+
+/* src/formModal.css */
+.modal-header {
+  background-color: #007bff; /* Primary color for header */
+  color: white; /* White text */
+}
+
+.modal-title {
+  font-weight: bold; /* Bold title */
+}
+
+.modal-body {
+  background-color: #f8f9fa; /* Light background for body */
+}
+
+.form-label {
+  font-weight: bold; /* Bold labels */
+}
+
+.form-control {
+  margin-bottom: 15px; /* Space between input fields */
+  border-radius: 4px; /* Rounded corners */
+}
+
+button {
+  border-radius: 4px; /* Rounded corners for buttons */
+}
+
+/* Hover effect for buttons */
+button:hover {
+  opacity: 0.9; /* Slightly fade on hover */
+}
+
+
+/* src/footer.css */
+footer a {
+  text-decoration: none;
+  color: #ffc107; /* Highlight color for links */
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #fff; /* Change color on hover */
+}
+
+.form-control {
+  border-radius: 5px; /* Rounded input field */
+}

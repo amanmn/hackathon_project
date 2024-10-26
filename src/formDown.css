@@ -1,0 +1,33 @@
+/* formDown.css */
+.form-container {
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto; /* Center the form */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.form-label {
+    font-weight: bold; /* Bold labels */
+}
+
+.form-control {
+    margin-bottom: 15px; /* Space between input fields */
+    border-radius: 4px; /* Rounded corners */
+}
+
+button {
+    border-radius: 4px; /* Rounded corners for buttons */
+}
+
+/* Hover effect for buttons */
+button:hover {
+    opacity: 0.9; /* Slightly fade on hover */
+}
