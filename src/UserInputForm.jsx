@@ -3,14 +3,15 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './formModal.css';
 import './formDown.css';
+import { useNavigate } from 'react-router-dom';
 
 const UserInputForm = ({ show, handleClose }) => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         income: '',
         propertyValue: '',
-        interestIncome: '',
         monthlyExpenses: '',
         existingLoans: '',
         creditScore: '',
@@ -19,6 +20,8 @@ const UserInputForm = ({ show, handleClose }) => {
 
     const [showResult, setShowResult] = useState(false);
     const [eligibilityMessage, setEligibilityMessage] = useState('');
+    const [isEligible, setIsEligible] = useState(false); // Track eligibility status
+
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -34,8 +37,11 @@ const UserInputForm = ({ show, handleClose }) => {
         const disposableIncome = income - (monthlyExpenses * 12); // Annual disposable income
         if (disposableIncome > 40000 && creditScore >= 700) {
             setEligibilityMessage('Congratulations! You are eligible for a loan.');
+            setIsEligible(true); // User is eligible
+
         } else {
             setEligibilityMessage('Unfortunately, you are not eligible for a loan at this time.');
+            setIsEligible(false); // User is not eligible
         }
         setShowResult(true);
     };
@@ -90,16 +96,6 @@ const UserInputForm = ({ show, handleClose }) => {
                             onChange={handleChange}
                         />
                     </Form.Group>
-                    <Form.Group controlId="formInterestIncome">
-                        <Form.Label>Interest Income</Form.Label>
-                        <Form.Control
-                            type="number"
-                            placeholder="Enter your interest income"
-                            name="interestIncome"
-                            value={formData.interestIncome}
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
                     <Form.Group controlId="formMonthlyExpenses">
                         <Form.Label>Monthly Expenses</Form.Label>
                         <Form.Control
@@ -113,12 +109,15 @@ const UserInputForm = ({ show, handleClose }) => {
                     <Form.Group controlId="formExistingLoans">
                         <Form.Label>Existing Loans</Form.Label>
                         <Form.Control
-                            type="text"
-                            placeholder="Describe any existing loans"
+                            as="select"
                             name="existingLoans"
                             value={formData.existingLoans}
                             onChange={handleChange}
-                        />
+                        >
+                            <option value="">Select...</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="formCreditScore">
                         <Form.Label>Credit Score</Form.Label>
@@ -145,7 +144,7 @@ const UserInputForm = ({ show, handleClose }) => {
                             <option value="retired">Retired</option>
                         </Form.Control>
                     </Form.Group>
-                    <Button variant="primary" type="submit">Submit</Button>
+                    <Button variant="primary" type="submit" >Submit</Button>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
@@ -157,8 +156,16 @@ const UserInputForm = ({ show, handleClose }) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Eligibility Result</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>{eligibilityMessage}</Modal.Body>
+                <Modal.Body>{eligibilityMessage}
+
+                </Modal.Body>
+
                 <Modal.Footer>
+                    {isEligible && (
+                        <Button variant="primary" onClick={() => { navigate('/nextBtn') }}>
+                            Proceed to Next Page
+                        </Button>
+                    )}
                     <Button variant="secondary" onClick={() => setShowResult(false)}>Close</Button>
                 </Modal.Footer>
             </Modal>

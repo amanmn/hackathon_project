@@ -6,7 +6,6 @@ import './formModal.css';
 
 const HeroSection = () => {
   const [showModal, setShowModal] = useState(false);
-
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
 

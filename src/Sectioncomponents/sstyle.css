@@ -1,0 +1,87 @@
+
+/* sstyle.css */
+  
+  .containerrr {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .h11 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .ull {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .ull li {
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .ull li::before {
+    /* content: '✔'; */
+    /* color: #ffffff; */
+    color: #007bff;
+    margin-right: 15px;
+  }
+  
+  h2 {
+    text-align: left;
+    margin-top: 30px;
+    color: #333;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  .sectionform label {
+    display: block;
+    margin-bottom: 5px;
+    color: #222222;
+  }
+  
+  .input-group {
+    width: 460px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 3px;
+  }
+  
+  .input-group-text {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 8px 12px;
+    color: #222222;
+  }
+  
+  .form-controll {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 18px;
+    color: #222222;
+  }
+  
+  .btn-primaryy {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 8px;
+  }
+
+  .hoverr:hover{
+    background-color: rgb(107, 200, 124);
+
+  }

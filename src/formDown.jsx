@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './formModal.css';
-import './formDown.css';
+import { Button, Form, Modal } from 'react-bootstrap';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import './formModal.css';
+// import './formDown.css';
 
 const FormDown = () => {
     const [formData, setFormData] = useState({
@@ -10,12 +10,24 @@ const FormDown = () => {
         email: '',
         income: '',
         propertyValue: '',
-        interestIncome: '',
         monthlyExpenses: '',
         existingLoans: '',
         creditScore: '',
         employmentStatus: '',
     });
+    const [showResult, setShowResult] = useState(false);
+    const [eligibilityMessage, setEligibilityMessage] = useState('');
+
+    const checkEligibility = () => {
+        const { income, monthlyExpenses, creditScore } = formData;
+        const disposableIncome = income - (monthlyExpenses * 12); // Annual disposable income
+        if (disposableIncome > 40000 && creditScore >= 700) {
+            setEligibilityMessage('Congratulations! You are eligible for a loan.');
+        } else {
+            setEligibilityMessage('Unfortunately, you are not eligible for a loan at this time.');
+        }
+        setShowResult(true);
+    };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,13 +36,13 @@ const FormDown = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("User Data Submitted:", formData);
+        checkEligibility();
         // Optionally reset the form
         setFormData({
             name: '',
             email: '',
             income: '',
             propertyValue: '',
-            interestIncome: '',
             monthlyExpenses: '',
             existingLoans: '',
             creditScore: '',
@@ -85,16 +97,6 @@ const FormDown = () => {
                         onChange={handleChange}
                     />
                 </Form.Group>
-                <Form.Group controlId="formInterestIncome">
-                    <Form.Label>Interest Income</Form.Label>
-                    <Form.Control
-                        type="number"
-                        placeholder="Enter your interest income"
-                        name="interestIncome"
-                        value={formData.interestIncome}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
                 <Form.Group controlId="formMonthlyExpenses">
                     <Form.Label>Monthly Expenses</Form.Label>
                     <Form.Control
@@ -108,12 +110,15 @@ const FormDown = () => {
                 <Form.Group controlId="formExistingLoans">
                     <Form.Label>Existing Loans</Form.Label>
                     <Form.Control
-                        type="text"
-                        placeholder="Describe any existing loans"
-                        name="existingLoans"
-                        value={formData.existingLoans}
-                        onChange={handleChange}
-                    />
+                            as="select"
+                            name="existingLoans"
+                            value={formData.existingLoans}
+                            onChange={handleChange}
+                        >
+                            <option value="">Select...</option>
+                            <option value="YES">Yes</option>
+                            <option value="NO">No</option>
+                        </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="formCreditScore">
                     <Form.Label>Credit Score</Form.Label>
@@ -142,6 +147,16 @@ const FormDown = () => {
                 </Form.Group>
                 <Button variant="primary" type="submit">Submit</Button>
             </Form>
+
+            <Modal show={showResult} onHide={() => setShowResult(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Eligibility Result</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{eligibilityMessage}</Modal.Body>
+                <Modal.Footer className='formButton'>
+                    <Button style={{width:'100%'}} variant="secondary" onClick={() => setShowResult(false)}>Close</Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };

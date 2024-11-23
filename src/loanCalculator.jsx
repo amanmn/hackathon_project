@@ -62,7 +62,7 @@ const LoanCalculator = ({ onClose }) => {
                 {emi && (
                     <div className="mt-3">
                         <h5>Results:</h5>
-                        <p>EMI: ₹{emi}</p>
+                        <p>EMI: ₹{emi} per month</p>
                         <p>Total Payment: ₹{totalPayment}</p>
                     </div>
                 )}

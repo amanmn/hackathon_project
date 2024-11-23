@@ -15,7 +15,7 @@ const formModal = () => {
             <Nav.Link href="#loans">Loans</Nav.Link>
             <Nav.Link href="#insurance">Insurance</Nav.Link>
             <Nav.Link href="#investments">Investments</Nav.Link>
-            <Nav.Link href="#financial-planning">Financial Planning</Nav.Link>
+            {/* <Nav.Link href="#financial-planning">Financial Planning</Nav.Link> */}
             <Nav.Link href="#about">About Us</Nav.Link>
           </Nav>
           <Form className="d-flex search-form">

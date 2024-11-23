@@ -7,7 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 const Features = () => {
   return (
     <Container className="my-5">
-      <h2 className="text-center mb-4">Why Choose FinanceHub?</h2>
+      <h2 className="text-center mb-4">Why Choose DharaFinance?</h2>
       <Row>
         <Col md={4} className="text-center">
           <h3>Fast Approvals</h3>

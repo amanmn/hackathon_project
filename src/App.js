@@ -8,7 +8,7 @@ import Features from './features';
 import Testimonials from './Testimonials';
 import FormDown from './formDown';
 import LoanOptions from './LoanOptions';
-import LoanCalculator from './loanCalculator'; // Import the LoanCalculator component
+import LoanCalculator from './loanCalculator'; 
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,7 +27,7 @@ const App = () => {
         <>
             <FormModal />
             <HeroSection />
-            <LoanOptions />
+            <LoanOptions /> 
             <Features />
             <Testimonials />
             <FormDown />

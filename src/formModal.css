@@ -18,7 +18,7 @@
 
 .cta-button {
   padding: 10px 20px;
-  font-size: 1rem;
+  font-size: 1rem; 
   border: none;
   border-radius: 5px;
   background-color: white; /* White background */
@@ -119,6 +119,9 @@ h2 {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+/* NavLink{
+  text-decoration: none;
+} */
 
 .loan-option {
   flex: 1 1 150px; /* Flex-grow, flex-shrink, and base width */
@@ -129,12 +132,14 @@ h2 {
   border-radius: 8px;
   background-color: #fff; /* White background for each option */
   transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
 }
 
 .loan-option:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
 
 .loan-icon {
   width: 50px; /* Uniform icon size */
@@ -150,10 +155,10 @@ h2 {
 }
 
 /* Active option styling */
-.loan-option.active {
-  border: 2px solid #007bff; /* Highlight active option */
-  background-color: #e7f1ff; /* Light blue background */
-}
+/* .loan-option.active {
+  border: 2px solid #007bff; 
+  background-color: #e7f1ff; 
+} */
 
 /* More options styling */
 .loan-option.more-options {
@@ -169,7 +174,7 @@ h2 {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .loan-option {
-    flex: 1 1 120px; /* Adjust width for smaller screens */
+    flex: 1 1 120px !important; /* Adjust width for smaller screens */
   }
 
   .loan-icon {
@@ -184,7 +189,7 @@ h2 {
 
 @media (max-width: 480px) {
   .loan-option {
-    flex: 1 1 100px; /* Further adjust for very small screens */
+    flex: 1 1 100px !important; /* Further adjust for very small screens */
   }
 }
 
